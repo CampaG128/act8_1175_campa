@@ -1,43 +1,37 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+import 'package:campadrawimg/ejemplo1.dart';
+import 'package:campadrawimg/ejemplo2.dart';
+import 'package:campadrawimg/ejemplo3.dart';
+import 'package:campadrawimg/ejemplo4.dart';
+
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  static const String ejemplo1 = Ejemplo1.routeName;
+  static const String ejemplo2 = Ejemplo2.routeName;
+  static const String ejemplo3 = Ejemplo3.routeName;
+  static const String ejemplo4 = Ejemplo4.routeName;
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      debugShowCheckedModeBanner: false,
+      title: 'Ejemplo Drawer Menu',
       theme: ThemeData(
-        // useMaterial3: false,
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      routes: {
+        ejemplo1: (context) => Ejemplo1(),
+        ejemplo2: (context) => Ejemplo2(),
+        ejemplo3: (context) => Ejemplo3(),
+        ejemplo4: (context) => Ejemplo4(),
+      },
+      home: Ejemplo1(),
     );
   }
 }
